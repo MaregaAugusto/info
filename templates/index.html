@@ -1,6 +1,23 @@
 {% extends 'base.html'  %}
 {% block contenido %}
-    <h1>Hola mundo 2022</h1>
+
+
+    {% if user.is_authenticated %}
+
+        <h1>{{ user.username }}</h1>
+        {% if user.is_superuser %}
+            <h1>puedo hacer de todo</h1>
+        {% endif %}
+    {% else %}
+
+        <h1>Hola mundo 2022</h1>
+
+    {% endif %}
+
+
     {% include 'imagen.html' %}
+
+
+
 {% endblock %}
     
